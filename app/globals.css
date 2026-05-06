@@ -1,26 +1,136 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #070b10;
+  --foreground: #f3f8fa;
+
+  --card: #101720;
+  --card-soft: #151e28;
+  --border: rgba(185, 216, 221, 0.14);
+
+  --muted: #9eb1ba;
+  --muted-soft: #718690;
+
+  --accent: #0f4965;
+  --accent-light: #b9d8dd;
+  --accent-soft: rgba(15, 73, 101, 0.22);
+  --accent-soft-light: rgba(185, 216, 221, 0.12);
+
+  --shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.38);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-soft: var(--card-soft);
+  --color-border: var(--border);
+
+  --color-muted: var(--muted);
+  --color-muted-soft: var(--muted-soft);
+
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-soft-light: var(--accent-soft-light);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  min-height: 100vh;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: var(--accent-light);
+  color: #0a1e28;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a1015;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(185, 216, 221, 0.18);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(185, 216, 221, 0.3);
+}
+
+/* Reusable custom classes */
+.page-shell {
+  width: min(1320px, calc(100% - 24px));
+  margin: 0 auto;
+}
+
+.glass-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  border-radius: 28px;
+}
+
+.accent-line {
+  width: 56px;
+  height: 5px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent-light), var(--accent));
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Subtle grid background behind content */
+.content-grid-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.content-grid-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(185, 216, 221, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(185, 216, 221, 0.035) 1px, transparent 1px);
+  background-size: 34px 34px;
+  opacity: 0.16;
+  mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
 }
