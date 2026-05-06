@@ -70,12 +70,12 @@ export function ProfileCard() {
   return (
     <aside
       ref={cardRef}
-      className="glass-card relative overflow-hidden p-4 sm:p-6 xl:sticky xl:top-8 xl:max-h-[calc(100vh-4rem)] xl:overflow-y-auto"
+      className="glass-card relative overflow-hidden p-4 sm:p-6 xl:sticky xl:top-8"
     >
       <div className="pointer-events-none absolute -top-24 left-1/2 h-52 w-52 -translate-x-1/2 rounded-full bg-[rgba(185,216,221,0.06)] blur-3xl" />
 
       <div className="relative z-10 flex items-center gap-4 text-left sm:flex-col sm:text-center">
-        <div className="profile-anim flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-3xl border border-border bg-card-soft sm:mb-5 sm:h-32 sm:w-32 sm:rounded-[2rem]">
+        <div className="profile-anim flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-3xl border border-border bg-card-soft sm:mb-5 sm:h-28 sm:w-28 sm:rounded-[2rem]">
           {profile.profileImage ? (
             <img
               src={profile.profileImage}
@@ -98,13 +98,13 @@ export function ProfileCard() {
             {profile.role}
           </p>
 
-          <p className="profile-anim mt-5 hidden max-w-xs text-sm leading-6 text-muted sm:block">
+          <p className="profile-anim mt-4 hidden max-w-xs text-sm leading-6 text-muted sm:block">
             {profile.tagline}
           </p>
         </div>
       </div>
 
-      <div className="profile-anim my-6 hidden h-px bg-border sm:block" />
+      <div className="profile-anim my-5 hidden h-px bg-border sm:block" />
 
       <div className="relative z-10 hidden space-y-4 sm:block">
         {contactLinks.map((item) => {

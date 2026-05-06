@@ -45,12 +45,11 @@ export default function Home() {
     });
 
   return (
-    <main className="min-h-screen pb-24 pt-5 md:py-10">
-      <div className="page-shell grid min-w-0 gap-4 xl:grid-cols-[340px_minmax(0,1fr)] xl:gap-6">
+    <main className="min-h-screen pb-20 pt-5 md:py-10">
+      <div className="page-shell grid min-w-0 items-start gap-4 xl:grid-cols-[310px_minmax(0,1fr)] xl:gap-6">
         <ProfileCard />
 
-        <section className="glass-card relative min-h-[620px] min-w-0 overflow-hidden">
-          {/* Desktop / tablet nav */}
+        <section className="glass-card relative min-w-0 overflow-hidden">
           <nav className="relative z-20 hidden border-b border-border bg-card px-4 py-4 sm:px-6 lg:px-8 md:block">
             <ul className="flex flex-wrap gap-2 xl:justify-end">
               {renderDesktopTabButtons()}
@@ -71,7 +70,6 @@ export default function Home() {
         </section>
       </div>
 
-      {/* Mobile bottom nav */}
       <nav className="fixed inset-x-3 bottom-3 z-50 rounded-[1.35rem] border border-border bg-[#101720]/95 p-1.5 shadow-[0_18px_60px_rgba(0,0,0,0.45)] backdrop-blur md:hidden">
         <ul
           className="grid gap-1"
